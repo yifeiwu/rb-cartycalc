@@ -22,5 +22,10 @@ describe 'PriceResolver' do
       price = subject.lookup_base_price('hoodie', { 'size' => 'large', 'colour' => 'dark' })
       expect(price).to eq(4212)
     end
+
+    it 'looks up the correct value for items with extra options' do
+      price = subject.lookup_base_price('hoodie', { 'size' => 'large', 'colour' => 'dark', 'gender' => 'women' })
+      expect(price).to eq(4212)
+    end
   end
 end
