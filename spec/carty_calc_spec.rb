@@ -11,10 +11,6 @@ describe 'CartyCalc' do
     # skip for this assignment
   end
 
-  describe 'it generates a price lookup' do
-    # todo
-  end
-
   describe 'it presents the correct total' do
     describe '#calculate' do
       it 'calculates the total of a given cart' do

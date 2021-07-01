@@ -14,6 +14,8 @@ class CartyCalc
     calculate_cart_total
   end
 
+  private
+
   def calculate_cart_total
     subtotals = []
 
@@ -27,10 +29,16 @@ class CartyCalc
   def get_line_item_total(line_item)
     product_type = line_item['product-type']
     options = line_item['options']
+
     base_price = price_resolver.lookup_base_price(product_type, options)
+
     artist_markup = line_item['artist-markup']
     quantity = line_item['quantity']
 
+    calculate_line_item_total(base_price, artist_markup, quantity)
+  end
+
+  def calculate_line_item_total(base_price, artist_markup, quantity)
     (base_price + (base_price * artist_markup / 100).round) * quantity
   end
 
